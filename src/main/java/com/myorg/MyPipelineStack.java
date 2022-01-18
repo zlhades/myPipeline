@@ -46,7 +46,7 @@ public class MyPipelineStack extends Stack {
         testingStage.addPost(new ManualApprovalStep("approval"));
 
         testingStage.addPost(ShellStep.Builder.create("validate")
-                .commands(Arrays.asList("curl -Ssf https://my.webservice.com/"))
+                .commands(Arrays.asList("curl -Ssf https://www.google.com/"))
                 .build());
 
     }
