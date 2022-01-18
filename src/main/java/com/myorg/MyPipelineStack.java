@@ -20,7 +20,9 @@ public class MyPipelineStack extends Stack {
         final CodePipeline pipeline = CodePipeline.Builder.create(this, "pipeline")
                 .pipelineName("MyPipeline")
                 .synth(ShellStep.Builder.create("Synth")
-                        .input(CodePipelineSource.gitHub("zlhades/myPipeline", "master"))
+                        .input(CodePipelineSource.connection("zlhades/myPipeline", "master",ConnectionSourceOptions.builder()
+                                .connectionArn("arn:aws:codestar-connections:us-east-1:759640244333:connection/fb1d14e9-8166-4f25-8554-b734ed01a374")
+                                .build()))
                         .commands(Arrays.asList("npm install -g aws-cdk", "cdk synth"))
                         .build())
                 .build();
